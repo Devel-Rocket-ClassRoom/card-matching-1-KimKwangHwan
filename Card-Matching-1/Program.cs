@@ -1,3 +1,5 @@
 using System;
 
-Console.WriteLine("Hello, Card Matching");
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+GameSystem gs = new GameSystem();
+gs.Start();
