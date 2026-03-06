@@ -96,6 +96,7 @@ public class CardMatchingGame
 
     public void PrintCardArray()
     {
+        Console.Clear();
         Console.WriteLine();
         Console.Write("   ");
         for (int i = 0; i < col; i++)
