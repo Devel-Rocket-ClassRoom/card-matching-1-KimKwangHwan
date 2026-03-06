@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 public enum GameState
 {
@@ -24,12 +25,14 @@ public class GameSystem
         
         while(true)
         {
+            Console.Clear();
             Console.WriteLine("게임 모드를 선택하세요:");
             Console.WriteLine("1. 클래식");
             Console.WriteLine("2. 타임어택");
             Console.WriteLine("3. 서바이벌");
             Console.Write("선택: ");
-
+            while (Console.KeyAvailable)
+                Console.ReadKey(true);
             int mode;
             if (Int32.TryParse(Console.ReadLine(), out mode))
             {
@@ -57,6 +60,8 @@ public class GameSystem
             Console.WriteLine("2. 보통 (4x4)");
             Console.WriteLine("3. 어려움 (4x6)");
             Console.Write("선택: ");
+            while (Console.KeyAvailable)
+                Console.ReadKey(true);
             int level;
             if (Int32.TryParse(Console.ReadLine(), out level))
             {
@@ -69,6 +74,8 @@ public class GameSystem
             Console.WriteLine("2. 알파벳 (컬러)");
             Console.WriteLine("3. 기호 (컬러)");
             Console.Write("선택: ");
+            while (Console.KeyAvailable)
+                Console.ReadKey(true);
             int skin;
 
             if (Int32.TryParse((Console.ReadLine()), out skin))
@@ -86,6 +93,8 @@ public class GameSystem
                 cmg.PrintCardArray();
                 cmg.PrintCount();
                 Console.WriteLine("첫 번째 카드를 선택하세요 (행 열): ");
+                while (Console.KeyAvailable)
+                    Console.ReadKey(true);
                 string[] input = Console.ReadLine().Split(' ');
                 int row;
                 int col;
@@ -104,6 +113,8 @@ public class GameSystem
                 }
                 cmg.PrintCardArray();
                 Console.WriteLine("두 번째 카드를 선택하세요 (행 열): ");
+                while (Console.KeyAvailable)
+                    Console.ReadKey(true);
                 input = Console.ReadLine().Split(' ');
                 int row2, col2;
                 if (Int32.TryParse(input[0], out row2) && Int32.TryParse(input[1], out col2))
@@ -135,6 +146,7 @@ public class GameSystem
                     Console.WriteLine("\n짝이 맞지 않습니다!");
                 }
                 cmg.CheckClear(out game_state);
+                Thread.Sleep(1000);
             }
 
             //if (game_state == GameState.Fail)
@@ -149,7 +161,8 @@ public class GameSystem
             //}
 
             Console.Write("\n새 게임을 하시겠습니까? (Y/N): ");
-
+            while (Console.KeyAvailable)
+                Console.ReadKey(true);
             string YN = Console.ReadLine();
 
             if (YN == "N" || YN == "n")
