@@ -80,7 +80,7 @@ public class GameSystem
 
             if (Int32.TryParse((Console.ReadLine()), out skin))
             {
-                if (level < 1 || level > 3) continue;
+                if (skin < 1 || skin > 3) continue;
             }
             else continue;
 

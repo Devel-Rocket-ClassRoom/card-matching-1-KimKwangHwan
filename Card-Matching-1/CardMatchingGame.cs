@@ -81,6 +81,7 @@ public class CardMatchingGame
 
     public void Shuffle()
     {
+        Console.Clear();
         Console.WriteLine("카드를 섞는 중...");
         for (int i = 0; i < deck.Length; i++)
         {
@@ -90,6 +91,7 @@ public class CardMatchingGame
             deck[index] = deck[i];
             deck[i] = temp;
         }
+        Thread.Sleep(500);
     }
 
     public void PrintCardArray()
