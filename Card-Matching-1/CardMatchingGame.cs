@@ -147,6 +147,16 @@ public class CardMatchingGame
 
     public void Retry()
     {
+        if (count < 2)
+        {
+            for (int i = 0; i < matching_cards.Length; i++)
+            {
+                if (matching_cards[i] != null)
+                {
+                    matching_cards[i].ChangeState(State.None);
+                }
+            }
+        }
         count = 0;
     }
 

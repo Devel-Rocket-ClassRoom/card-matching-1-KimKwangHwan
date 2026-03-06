@@ -81,9 +81,10 @@ public class GameSystem
             cmg.Preview();
             while (game_state == GameState.Gaming)
             {
+                Console.Clear();
+                cmg.Retry();
                 cmg.PrintCardArray();
                 cmg.PrintCount();
-                cmg.Retry();
                 Console.WriteLine("첫 번째 카드를 선택하세요 (행 열): ");
                 string[] input = Console.ReadLine().Split(' ');
                 int row;
@@ -93,9 +94,14 @@ public class GameSystem
                     if (!cmg.SelectCard(row, col))
                     {
                         Console.WriteLine("\n범위 밖의 카드를 고르셨습니다. 다시 시도하세요!\n");
+                        continue;
                     }
                 }
-                else continue;
+                else
+                {
+                    Console.WriteLine("다시 입력하세요.");
+                    continue;
+                }
                 cmg.PrintCardArray();
                 Console.WriteLine("두 번째 카드를 선택하세요 (행 열): ");
                 input = Console.ReadLine().Split(' ');
@@ -110,9 +116,14 @@ public class GameSystem
                     if (!cmg.SelectCard(row2, col2))
                     {
                         Console.WriteLine("\n범위 밖의 카드를 고르셨습니다. 다시 시도하세요!\n");
+                        continue;
                     }
                 }
-                else continue;
+                else
+                {
+                    Console.WriteLine("다시 입력하세요.");
+                    continue;
+                }
                 cmg.PrintCardArray();
                 cmg.PrintCount();
                 if (cmg.CheckMatching())

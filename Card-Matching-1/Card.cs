@@ -59,8 +59,8 @@ public class Card
             '♥', // 하트
             '♦', // 다이아
             '♣', // 클로버
-            '◆', // 마름모
             '▼', // 역삼각형
+            '○', // 빈 원
             '♡', // 빈 하트
             '☆', // 빈 별
         };
@@ -93,8 +93,11 @@ public class Card
         this.state = state;
     }
 
+    public State GetState() { return this.state; }
     public static bool operator ==(Card lhs, Card rhs)
     {
+        if (lhs is null && rhs is null) return true;
+        if (lhs is null || rhs is null) return false;
         return lhs.value == rhs.value;
     }
     public static bool operator !=(Card lhs, Card rhs)
