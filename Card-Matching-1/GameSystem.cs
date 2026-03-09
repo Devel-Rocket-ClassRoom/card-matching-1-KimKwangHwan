@@ -119,11 +119,11 @@ public class GameSystem
                 int row2, col2;
                 if (Int32.TryParse(input[0], out row2) && Int32.TryParse(input[1], out col2))
                 {
-                    if (row == row2 && col == col2)
-                    {
-                        Console.WriteLine("\n같은 카드를 고르셨습니다. 다시 시도하세요!\n");
-                        continue;
-                    }
+                    //if (row == row2 && col == col2)
+                    //{
+                    //    Console.WriteLine("\n같은 카드를 고르셨습니다. 다시 시도하세요!\n");
+                    //    continue;
+                    //}
                     if (!cmg.SelectCard(row2, col2))
                     {
                         Console.WriteLine("\n범위 밖의 카드를 고르셨습니다. 다시 시도하세요!\n");

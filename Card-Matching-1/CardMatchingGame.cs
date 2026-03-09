@@ -132,7 +132,7 @@ public class CardMatchingGame
     public virtual bool CheckMatching()
     {
         bool isCorrect = false;
-        if (matching_cards[0] == matching_cards[1])
+        if (matching_cards[0] == matching_cards[1] && (!ReferenceEquals(matching_cards[0], matching_cards[1])))
         {
             correct_count++;
             matching_cards[0].ChangeState(State.Matched);
@@ -150,16 +150,6 @@ public class CardMatchingGame
 
     public void Retry()
     {
-        if (count < 2)
-        {
-            for (int i = 0; i < matching_cards.Length; i++)
-            {
-                if (matching_cards[i] != null)
-                {
-                    matching_cards[i].ChangeState(State.None);
-                }
-            }
-        }
         count = 0;
     }
 

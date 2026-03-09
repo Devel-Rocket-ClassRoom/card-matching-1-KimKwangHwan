@@ -17,7 +17,7 @@ public class Survival : CardMatchingGame
     public override bool CheckMatching()
     {
         bool isCorrect = false;
-        if (matching_cards[0] == matching_cards[1])
+        if (matching_cards[0] == matching_cards[1] && (!ReferenceEquals(matching_cards[0], matching_cards[1])))
         {
             correct_count++;
             matching_cards[0].ChangeState(State.Matched);
